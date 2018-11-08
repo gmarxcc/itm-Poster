@@ -1,0 +1,592 @@
+\documentclass[9pt]{beamer}
+
+\usepackage{tikz}
+
+
+\usetheme{Hannover}
+\usecolortheme{dove}
+\setbeamersize{text margin left=0.2cm,text margin right=0.2cm}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{frametitle}[default][left]
+\setbeamercolor{frametitle}{fg=red!80!black, bg=gray!20}
+
+% Commands
+\newcommand{\bs}{\textbackslash}   % backslash
+\newcommand{\cmd}[1]{{\bf \color{red}#1}}   % highlights command
+
+
+\title{Theme and Style Guide to TikZposter}
+
+\author[] {Elena Botoeva, Richard Barnard, Pascal Richter and Dirk Surmann}
+
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\section{Default}
+
+\begin{frame}
+  \frametitle{Your first TikZposter}
+  
+  \begin{columns}
+    \column{.45\textwidth}
+    \includegraphics[width=5cm]{all_themes.pdf}
+
+    %%
+   \column{.55\textwidth} 
+    Making posters in Latex is easy! To see this document, compile the following
+    code:
+
+    \medskip
+    \hspace{0.2cm}
+    \begin{minipage}{.55\textwidth}\small
+      \bs documentclass\{tikzposter\}\\
+      \\
+      \bs title\{Title\}\\
+      \bs author\{Author\}\\
+      \bs institute\{Institute\}\\
+      \\
+      \bs begin\{document\}\\
+      \\
+      \bs maketitle\\
+      \\
+      \bs block\{Block\}\{Content\}\\
+      \bs end\{document\}
+    \end{minipage}
+
+  \end{columns}
+\end{frame}
+
+\section{Customizing}
+
+\begin{frame}
+  \frametitle{Customization of TikZposter}
+  
+  TikZposter is highly customizable!  There are a number of options
+  that can be specified on different levels and define the layout and
+  the appearance of your poster.
+
+  \medskip%
+  Here we will only discuss customization from the stylistic point of
+  view. The goal of this document is to introduce you to the available
+  themes and styles that are listed below.
+
+  \begin{description}\small
+  \item[Themes:] Default, Rays, Basic, Simple, Envelope, Wave,
+    Board, Autumn, Desert.
+  
+  \item[Color palettes:] Default, BlueGrayOrange, GreenGrayViolet,
+    PurpleGrayBlue, BrownBlueOrange.
+
+  \item[Color styles:] Default, Australia, Britain, Sweden, Spain,
+    Russia, Denmark, Germany.
+
+  \item[Backgrounds:] Default, VerticalGradation, Rays,
+    BottomVerticalGradation, Empty.
+
+  \item[Titles:] Default, Basic, Empty, Filled, Envelope, Wave, VerticalShading.
+
+  \item[Blocks:] Default, Basic, Minimal, Envelope, Corner,
+    Slide, TornOut.
+
+  \item[Inner blocks:] Default and Table, along with copies of
+    the styles for blocks.
+
+  \item[Notes:] Default, VerticalShading, Corner, Sticky.
+  \end{description}
+\end{frame}
+
+\subsection{Theme}
+
+\begin{frame}
+  \frametitle{Customization of TikZposter: Theme}
+  
+  \emph{Theme} is a complete collection of all possible options for you poster.
+
+  \medskip
+  \begin{columns}[c]
+    \column{.45\textwidth}
+    \includegraphics[width=5cm, page=3]{all_themes.pdf}
+
+    %%
+    \column{.55\textwidth} 
+    By \bs usetheme command, you can change the theme of the poster.
+    
+    \medskip
+    \hspace{0.2cm}
+    \begin{minipage}{.6\textwidth}\small
+      \bs documentclass\{tikzposter\}
+    
+      \bs usetheme\{Basic\}\\
+      \\
+      \bs title\{Title\}\\
+      \bs author\{Author\}\\
+      \bs institute\{Institute\}\\
+      \\
+      \bs begin\{document\}\\
+      \\
+      \bs maketitle\\
+      \\
+      \bs block\{Block\}\{Content\}\\
+      \bs end\{document\}
+    \end{minipage}
+
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{All Themes}
+  
+  \small\vspace{-0.05cm}
+  \begin{tabular}[t]{@{}p{3.5cm}@{~~~}p{3.5cm}@{~~~}p{3.5cm}}
+    Default & Rays & Basic\\[-0.03cm]
+    \includegraphics[page=1,width=3.5cm]{all_themes.pdf} &
+    \includegraphics[page=2, width=3.5cm]{all_themes.pdf} &
+    \includegraphics[page=3, width=3.5cm]{all_themes.pdf} \\ [0.03cm]
+    Simple & Envelope & Wave\\[-0.03cm]
+    \includegraphics[page=4,width=3.5cm]{all_themes.pdf} &
+    \includegraphics[page=5, width=3.5cm]{all_themes.pdf} &
+    \includegraphics[page=6, width=3.5cm]{all_themes.pdf} \\ [0.03cm]
+    Board & Autumn & Desert\\[-0.03cm]
+    \includegraphics[page=7,width=3.5cm]{all_themes.pdf} &
+    \includegraphics[page=8, width=3.5cm]{all_themes.pdf} &
+    \includegraphics[page=9, width=3.5cm]{all_themes.pdf} \\
+ \end{tabular}
+\end{frame}
+
+\foreach \theme/\i in {%
+  Default/1, Rays/2, Basic/3, Simple/4, Envelope/5, Wave/6, Board/7, Autumn/8,
+  Desert/9}{
+\begin{frame}
+  \frametitle{\theme ~Theme}
+    \includegraphics[page=\i, width=11.2cm]{all_themes.pdf} 
+\end{frame}
+}
+
+\subsection{Color}
+
+\begin{frame}
+  \frametitle{Customization of TikZposter: Color styles and palettes}
+  
+  \emph{Color palettes} define the main colors used by the elements of
+  poster, while \emph{Color styles} specify the exact colors used in
+  depicting the elements of poster, e.g., the color of the text in
+  block titles, the frame color of the title, etc.
+
+  \medskip
+  \begin{columns}[c]
+    \column{.45\textwidth}
+    \includegraphics[width=5cm, page=2]{all_colors.pdf}
+
+    %%
+    \column{.55\textwidth} %
+    By \bs usecolorstyle command, you can change the coloring scheme
+    or the main colors, so called color palette, of the poster.
+
+    \medskip
+    \hspace{0.2cm}
+    \begin{minipage}{.6\textwidth}\small
+      \bs documentclass\{tikzposter\}
+    
+      \bs usecolorstyle[colorPalette=GreenGrayViolet]\\
+      \mbox{\qquad\qquad}\{Australia\}\\
+      \\
+      \bs title\{Title\}\\
+      \bs author\{Author\}\\
+      \bs institute\{Institute\}\\
+      \\
+      \bs begin\{document\}\\
+      \\
+      \bs maketitle\\
+      \\
+      \bs block\{Block\}\{Content\}\\
+      \bs end\{document\}
+    \end{minipage}
+
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{All Color Styles}
+  
+  \small\vspace{-0.05cm}
+  \begin{tabular}[t]{@{}p{3.5cm}@{~~~}p{3.5cm}@{~~~}p{3.5cm}}
+    Default & Australia & Britain\\[-0.03cm]
+    \includegraphics[page=1, width=3.5cm]{all_colors.pdf} &
+    \includegraphics[page=2, width=3.5cm]{all_colors.pdf} &
+    \includegraphics[page=3, width=3.5cm]{all_colors.pdf} \\ [0.03cm]
+    Sweden & Spain & Russia\\[-0.03cm]
+    \includegraphics[page=4, width=3.5cm]{all_colors.pdf} &
+    \includegraphics[page=5, width=3.5cm]{all_colors.pdf} &
+    \includegraphics[page=6, width=3.5cm]{all_colors.pdf} \\ [0.03cm]
+    Denmark & Germany & \\[-0.03cm]
+    \includegraphics[page=7, width=3.5cm]{all_colors.pdf} &
+    \includegraphics[page=8, width=3.5cm]{all_colors.pdf} 
+  \end{tabular}
+\end{frame}
+
+\foreach \col/\i in {%
+  Default/1, Australia/2, Britain/3, Sweden/4, Spain/5, Russia/6, Denmark/7, Germany/8}{
+\begin{frame}
+  \frametitle{\col ~Color Style}
+    \includegraphics[page=\i, width=11.2cm]{all_colors.pdf} 
+\end{frame}
+}
+
+\begin{frame}
+  \frametitle{All Color Palettes}
+  
+  \small
+  \begin{tabular}[t]{@{}p{3.5cm}@{~~~}p{3.5cm}@{~~~}p{3.5cm}}
+    Default & BlueGrayOrange & GreenGrayViolet\\[-0.03cm]
+    \includegraphics[page=1, width=3.5cm]{all_palettes.pdf} &
+    \includegraphics[page=2, width=3.5cm]{all_palettes.pdf} &
+    \includegraphics[page=3, width=3.5cm]{all_palettes.pdf} \\ [0.05cm]
+    PurpleGrayBlue & BrownBlueOrange & \\[-0.03cm]
+    \includegraphics[page=4, width=3.5cm]{all_palettes.pdf} &
+    \includegraphics[page=5, width=3.5cm]{all_palettes.pdf} &
+  \end{tabular}
+\end{frame}
+
+\foreach \col/\i in {%
+  Default/1, BlueGrayOrange/2, GreenGrayViolet/3, PurpleGrayBlue/4, BrownBlueOrange/5}{
+\begin{frame}
+  \frametitle{\col ~Color Palette}
+    \includegraphics[page=\i, width=11.2cm]{all_palettes.pdf} 
+\end{frame}
+}
+
+\subsection{Background}
+
+\begin{frame}
+  \frametitle{Customization of TikZposter: Background}
+  
+  \begin{columns}[c]
+    \column{.45\textwidth}
+    \includegraphics[width=5cm,page=3]{all_backgrounds.pdf}
+
+    %% 
+    \column{.55\textwidth} 
+    By \bs usebackgroundstyle command, you can change the background of the poster.
+
+    \medskip
+    \hspace{0.2cm}
+    \begin{minipage}{.6\textwidth}\small
+      \bs documentclass\{tikzposter\}
+      
+      \bs usebackgroundstyle\{Rays\}\\
+      \\
+      \bs title\{Title\}\\
+      \bs author\{Author\}\\
+      \bs institute\{Institute\}\\
+      \\
+      \bs begin\{document\}\\
+      \\
+      \bs maketitle\\
+      \\
+      \bs block\{Block\}\{Content\}\\
+      \bs end\{document\}
+    \end{minipage}
+
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{All Background Styles}
+  
+  \small
+  \begin{tabular}[t]{@{}p{3.5cm}@{~~~}p{3.5cm}@{~~~}p{3.5cm}}
+    Default & VerticalGradation & Rays\\[-0.03cm]
+    \includegraphics[page=1, width=3.5cm]{all_backgrounds.pdf} &
+    \includegraphics[page=2, width=3.5cm]{all_backgrounds.pdf} &
+    \includegraphics[page=3, width=3.5cm]{all_backgrounds.pdf} \\ [0.05cm]
+    BottomVerticalGradation & Empty & \\[-0.03cm]
+    \includegraphics[page=4, width=3.5cm]{all_backgrounds.pdf} &
+    \includegraphics[page=5, width=3.5cm]{all_backgrounds.pdf} &
+  \end{tabular}
+\end{frame}
+
+\foreach \back/\i in {%
+  Default/1, VerticalGradation/2, Rays/3, BottomVerticalGradation/4, Empty/5}{
+\begin{frame}
+  \frametitle{\back ~Background}
+    \includegraphics[page=\i, width=11.2cm]{all_backgrounds.pdf} 
+\end{frame}
+}
+
+\subsection{Title}
+
+\begin{frame}
+  \frametitle{Customization of TikZposter: Title node}
+  
+  \begin{columns}[c]
+    \column{.45\textwidth}
+    \includegraphics[width=5cm, page=6]{all_titles.pdf}
+
+    %%
+   \column{.55\textwidth} 
+    By \bs usetitlestyle command, you can change the way the title is depicted.
+
+    \medskip
+    \hspace{0.2cm}
+    \begin{minipage}{.6\textwidth}\small
+      \bs documentclass\{tikzposter\}
+    
+      \bs usetitlestyle\{Wave\}\\
+      \\
+      \bs title\{Title\}\\
+      \bs author\{Author\}\\
+      \bs institute\{Institute\}\\
+      \\
+      \bs begin\{document\}\\
+      \\
+      \bs maketitle\\
+      \\
+      \bs block\{Block\}\{Content\}\\
+      \bs end\{document\}
+    \end{minipage}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{All Title Styles}
+  
+  \small\vspace{-0.05cm}
+  \begin{tabular}[t]{@{}p{3.5cm}@{~~~}p{3.5cm}@{~~~}p{3.5cm}}
+    Default & Basic & Empty\\[-0.03cm]
+    \includegraphics[page=1, width=3.5cm]{all_titles.pdf} &
+    \includegraphics[page=2, width=3.5cm]{all_titles.pdf} &
+    \includegraphics[page=3, width=3.5cm]{all_titles.pdf} \\ [0.03cm]
+    Filled & Envelope & Wave\\[-0.03cm]
+    \includegraphics[page=4, width=3.5cm]{all_titles.pdf} &
+    \includegraphics[page=5, width=3.5cm]{all_titles.pdf} &
+    \includegraphics[page=6, width=3.5cm]{all_titles.pdf} \\ [0.03cm]
+    VerticalShading & & \\[-0.03cm]
+    \includegraphics[page=7, width=3.5cm]{all_titles.pdf} &
+  \end{tabular}
+\end{frame}
+
+\foreach \back/\i in {%
+  Default/1, Basic/2, Empty/3, Filled/4, Envelope/5, Wave/6, VerticalShading/7}{
+\begin{frame}
+  \frametitle{\back ~Title}
+    \includegraphics[page=\i, width=11.2cm]{all_titles.pdf} 
+\end{frame}
+}
+
+\subsection{Block}
+
+\begin{frame}
+  \frametitle{Customization of TikZposter: Block nodes}
+  
+  \begin{columns}[c]
+    \column{.45\textwidth}
+    \includegraphics[width=5cm, page=6]{all_blocks.pdf}
+
+    %%
+   \column{.55\textwidth} 
+    By \bs useblockstyle command, you can change the style of the blocks.
+
+    \medskip
+    \hspace{0.2cm}
+    \begin{minipage}{.6\textwidth}\small
+      \bs documentclass\{tikzposter\}
+    
+      \bs useblockstyle\{Slide\}\\
+      \\
+      \bs title\{Title\}\\
+      \bs author\{Author\}\\
+      \bs institute\{Institute\}\\
+      \\
+      \bs begin\{document\}\\
+      \\
+      \bs maketitle\\
+      \\
+      \bs block\{Block\}\{Content\}\\
+      \bs end\{document\}
+    \end{minipage}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{All Block Styles}
+  
+  \small\vspace{-0.05cm}
+  \begin{tabular}[t]{@{}p{3.5cm}@{~~~}p{3.5cm}@{~~~}p{3.5cm}}
+    Default & Basic & Minimal\\[-0.03cm]
+    \includegraphics[page=1, width=3.5cm]{all_blocks.pdf} &
+    \includegraphics[page=2, width=3.5cm]{all_blocks.pdf} &
+    \includegraphics[page=3, width=3.5cm]{all_blocks.pdf} \\ [0.03cm]
+    Envelope & Corner & Slide\\[-0.03cm]
+    \includegraphics[page=4, width=3.5cm]{all_blocks.pdf} &
+    \includegraphics[page=5, width=3.5cm]{all_blocks.pdf} &
+    \includegraphics[page=6, width=3.5cm]{all_blocks.pdf} \\ [0.03cm]
+    TornOut & & \\[-0.03cm]
+    \includegraphics[page=7, width=3.5cm]{all_blocks.pdf} &
+  \end{tabular}
+\end{frame}
+
+\foreach \back/\i in {%
+  Default/1, Basic/2, Minimal/3, Envelope/4, Corner/5, Slide/6, TornOut/7}{
+\begin{frame}
+  \frametitle{\back ~Block}
+    \includegraphics[page=\i, width=11.2cm]{all_blocks.pdf} 
+\end{frame}
+}
+
+\subsection{Note}
+
+\begin{frame}
+  \frametitle{Customization of TikZposter: Notes}
+  
+  \begin{columns}[c]
+    \column{.45\textwidth}
+    \includegraphics[width=5cm, page=4]{all_notes.pdf}
+
+    %%
+   \column{.55\textwidth} 
+    By \bs usenotestyle command, you can change the style of the notes.
+
+    \medskip
+    \hspace{0.2cm}
+    \begin{minipage}{.6\textwidth}\small
+      \bs documentclass\{tikzposter\}
+    
+      \bs usenotestyle\{Sticky\}\\
+      \\
+      \bs title\{Title\}\\
+      \bs author\{Author\}\\
+      \bs institute\{Institute\}\\
+      \\
+      \bs begin\{document\}\\
+      \\
+      \bs maketitle\\
+      \\
+      \bs block\{Block\}\{Content\}\\
+      \bs end\{document\}
+    \end{minipage}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{All Note Styles}
+  
+  \small
+  \begin{tabular}[t]{p{4.5cm}p{4.5cm}}
+    Default & VerticalShading\\
+    \includegraphics[page=1, width=4.5cm]{all_notes.pdf} &
+    \includegraphics[page=2, width=4.5cm]{all_notes.pdf}\\
+    Corner & Sticky\\
+    \includegraphics[page=3, width=4.5cm]{all_notes.pdf} &
+    \includegraphics[page=4, width=4.5cm]{all_notes.pdf} \\
+  \end{tabular}
+\end{frame}
+
+\foreach \back/\i in {%
+  Default/1, VerticalShading/2, Corner/3, Sticky/4}{
+\begin{frame}
+  \frametitle{\back ~Block}
+    \includegraphics[page=\i, width=11.2cm]{all_notes.pdf} 
+\end{frame}
+}
+
+\subsection{New Look}
+
+\begin{frame}
+  \frametitle{Customization of TikZposter: Your Own Look}
+
+  \footnotesize
+  You can completely change the appearance of your poster. Below we
+  define a new color style to be used together with the predefined
+  background (Default), title (Wave), blocks (Minimal) and notes
+  (Default) styles.
+
+  \medskip\scriptsize
+  \begin{columns}[t]
+    \column{.4\textwidth}
+    \begin{minipage}[t]{0.5\textwidth}
+      \bs documentclass\{tikzposter\}
+
+      \bs definecolor\{mygray\}\{HTML\}\{CCCCCC\}
+
+      \bs definecolorstyle\{myColorStyle\}\{\\
+      \mbox{~~}\bs colorlet\{colorOne\}\{black\}\\
+      \mbox{~~}\bs colorlet\{colorTwo\}\{mygray\}\\
+      \mbox{~~}\bs colorlet\{colorThree\}\{mygray\}\\
+      \}\{\\
+      \mbox{~~}\% Background Colors\\
+      \mbox{~~}\bs colorlet\{backgroundcolor\}\{colorTwo!50\}\\
+      \mbox{~~}\bs colorlet\{framecolor\}\{colorTwo!50\}\\
+      \mbox{~~}\% Title Colors\\
+      \mbox{~~}\bs colorlet\{titlefgcolor\}\{white\}\\
+      \mbox{~~}\bs colorlet\{titlebgcolor\}\{colorOne\}\\
+      \mbox{~~}\% Block Colors\\
+      \mbox{~~}\bs colorlet\{blocktitlebgcolor\}\{colorTwo!50\}\\
+      \mbox{~~}\bs colorlet\{blocktitlefgcolor\}\{black\}\\
+      \mbox{~~}\bs colorlet\{blockbodybgcolor\}\{colorTwo!50\}\\
+      \mbox{~~}\bs colorlet\{blockbodyfgcolor\}\{black\}\\
+      \mbox{~~}\% Innerblock Colors\\
+      \mbox{~~}\bs colorlet\{innerblocktitlebgcolor\}\{white\}\\
+      \mbox{~~}\bs colorlet\{innerblocktitlefgcolor\}\{black\}\\
+      \mbox{~~}\bs colorlet\{innerblockbodybgcolor\}\{white\}\\
+      \mbox{~~}\bs colorlet\{innerblockbodyfgcolor\}\{black\}\\
+      \mbox{~~}\% Note colors\\
+      \mbox{~~}\bs colorlet\{notefgcolor\}\{black\}\\
+      \mbox{~~}\bs colorlet\{notebgcolor\}\{white\}\\
+      \mbox{~~}\bs colorlet\{notefrcolor\}\{white\}\\
+      \}
+    \end{minipage}
+
+    %% 
+    \column{.6\textwidth} 
+    \begin{minipage}[t]{0.5\textwidth}
+      \bs usecolorstyle\{myColorStyle\}\\
+      % \bs usebackgroundstyle\{Default\}\\
+      \bs usetitlestyle\{Wave\}\\
+      \bs useblockstyle\{Minimal\}\\
+      \\
+      \bs usepackage\{avant\}\\
+      \bs renewcommand*\bs familydefault\{\bs sfdefault\}\\
+      \bs usepackage[T1]\{fontenc\}\\
+      \\
+      \bs title\{Title\}%
+      \bs author\{Author\}%
+      \bs institute\{Institute\}\\ 
+      \\
+      \bs begin\{document\}\\
+      \bs maketitle\\
+      \bs begin\{columns\}\\
+      \mbox{~~}\bs column\{0.5\}\\
+      \mbox{~~}\bs block\{Block 1\}\{\\
+      \mbox{~~~~}\bs coloredbox\{\\
+      \mbox{~~~~~~}Content 1\\
+      \mbox{~~}\}\}\\
+      \mbox{~~}\bs column\{0.5\}\\
+      \mbox{~~}\bs block\{Block 2\}\{\\
+      \mbox{~~~~}\bs coloredbox\{\\
+      \mbox{~~~~~~}Content 2\\
+      \mbox{~~}\}\}\\
+      \bs end\{columns\}\\
+      \bs end\{document\}
+    \end{minipage}
+  \end{columns}
+
+  \vspace{-4cm}\hspace{7cm}\includegraphics[width=4cm]{mytheme.pdf}
+
+  ~\\~\\~\\~\\~\\
+\end{frame}
+
+\begin{frame}
+  \frametitle{My Customized Poster}
+    \includegraphics[width=11.2cm]{mytheme.pdf} 
+\end{frame}
+
+
+\end{document}
+
+
+

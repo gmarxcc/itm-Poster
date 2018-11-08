@@ -1,0 +1,70 @@
+\documentclass[a1paper,landscape]{tikzposter} 
+
+\tikzposterlatexaffectionproofon %shows small comment on how the poster was made
+
+% Commands
+\newcommand{\bs}{\textbackslash}   % backslash
+\newcommand{\cmd}[1]{{\bf \color{red}#1}}   % highlights command
+
+
+% -- PREDEFINED THEMES ---------------------- %
+
+% Backgrounds: Default, Empty, Rays, VerticalGradation, BottomVerticalGradation
+% Titles: Default, Basic, Empty, Filled, Envelope, Wave, VerticalShading
+% Blocks: Default, Basic, Minimal, Envelope, Corner, Slide, TornOut
+% Notes: Default, Sticky, Corner, VerticalShading
+
+\usetheme{$themevar}
+$colorvar
+$backgroundvar
+$titlevar
+$blockvar
+$notevar
+
+% Title, Author, Institute
+\title{$messagevar}
+\author{$submessagevar}
+\institute{}
+
+\begin{document}
+
+% Title block with title, author, logo, etc.
+\maketitle
+
+\block{Block with title}{Content\\~\\~
+
+  % \vspace{1cm}
+  % \innerblock{Theorem}{like environment}
+
+  % \vspace{1cm}
+  % \innerblock{}{inner block without title}
+
+}
+
+\block{}{~\\
+  Block without title\\
+  ~\\
+}
+
+\note[targetoffsety=-2cm, width=20cm]{
+  Note\\ ~\\ ~\\}
+
+\block[titleoffsety=-2cm,bodyoffsety=-2cm]%
+{If you like this setting, use the following code:}{
+  \bs documentclass\{tikzposter\} \\
+  \\
+  $themestylevar$colorstylevar$backgroundstylevar$titlestylevar$blockstylevar$notestylevar\\
+  \bs title\{Title\}
+  \bs author\{Author\}
+  \bs institute\{Institute\}\\ 
+  \\
+  \bs begin\{document\}\\
+  \\
+  \bs maketitle\\
+  \\
+  \bs block\{Block\}\{Content\}\\
+  \bs end\{document\}
+}
+
+\end{document}
+
